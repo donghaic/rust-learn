@@ -4,11 +4,18 @@ pub struct KvStore {
     db: HashMap<String, String>,
 }
 
-impl KvStore {
+impl Default for KvStore {
     /// Creates a `KvStore`.
-    pub fn new() -> KvStore {
-        println!("constructor a new KvStore");
+    fn default() -> Self {
+        println!("default constructor");
         KvStore { db: HashMap::new() }
+    }
+}
+
+impl KvStore {
+    pub fn new() -> Self {
+        println!("new constructor");
+        KvStore::default()
     }
 }
 
